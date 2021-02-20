@@ -12,13 +12,13 @@ private:
 	uint64_t size_{0};
 	uint64_t capacity_{0};
 public:
-	my_vec(uint64_t sz, uint64_t val) {
+	my_vec(uint64_t sz, T val) {
 		data_ = nullptr;
-		cout << "in constructor" << std::endl;
 		size_ = sz;
 		_resize();
-		for (T i=0; i<size_; i++) {
-			data_[i++] = val;
+		auto tracker = data_;
+		for (uint64_t i=0; i<size_; i++) {
+			*tracker++ = val;
 		}
 	}
 
@@ -30,17 +30,16 @@ public:
 		capacity_ = pow(2, (size_/2)+1);
 		cout << "new capacity is " << capacity_ << std::endl;
 		T* new_data_ = new T(capacity_);
-		::memset(new_data_, capacity_, 0);
-		//copy old data
+
 		if (data_ == nullptr)  {
-			cout << "1st init" << std::endl;
 			data_ = new_data_;
 			return;
 		}
+
 		cout << "rebased" << std::endl;
 		auto src = data_;
 		auto dest = new_data_;
-		for(T i=0; i<size_; i++) {
+		for(uint64_t i=0; i<size_; i++) {
 			*dest++ = *src++;
 		}
 		delete data_;
@@ -62,20 +61,29 @@ public:
 };
 
 int main() {
+
+	cout << "+++++++++++int test ++++++++"<< std::endl;
 	my_vec<int> vc(3, 0);
 	cout << vc[0] << std::endl;
-	cout << vc[1] << std::endl;
-	cout << vc[2] << std::endl;
-	cout << "abt to push back" << std::endl;
-	vc.push_back(9);
-	vc.push_back(90);
-	cout << "push back complete" << std::endl;
+	vc.push_back(1);
+	vc.push_back(2);
 	try {
 		cout << vc[4] << std::endl;
 	} catch (std::exception& t) {
 		cout << t.what() << std::endl;
 	}
-	cout << "end" << std::endl;
+
+	cout << "++++++char test ++++++++++" << std::endl;
+
+	my_vec<char> vc2(3, 'a');
+	cout << vc2[0] << std::endl;
+	vc2.push_back('b');
+	vc2.push_back('c');
+	try {
+		cout << vc2[4] << std::endl;
+	} catch (std::exception& t) {
+		cout << t.what() << std::endl;
+	}
 	return 0;
 }
 
