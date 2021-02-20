@@ -1,3 +1,3 @@
 # sample_cpp
-sample cpp snippets 
+Sample cpp snippets.
 These are small c++17 modules to understand core concepts.
