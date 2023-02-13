@@ -3,15 +3,23 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
-
+#include <map>
 using namespace std;
 
 int main() {
 
-	vector<int> d;
-	d.emplace_back(1,2);
-	cout << *std::min_element(d.begin(), d.end());
+
+	vector<map<int,int>> xxx;
+	xxx.emplace_back({});
+	xxx.emplace_back({});
+	std::cout << xxx.size() << std::endl;
+	// std::cout << xxx[1];
 	return 0;
+
+	vector<int> d;
+	//d.emplace_back(1,2);
+	//cout << *std::min_element(d.begin(), d.end());
+	//return 0;
 
 	d.push_back(3);
 	d.push_back(1);
