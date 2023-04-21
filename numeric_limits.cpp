@@ -10,7 +10,7 @@ int main() {
 
 	cout << i << std::endl;
 
-	cout << "int max is:" << std::numeric_limits<int>::max();
+	cout << "int max is:" << std::numeric_limits<uint64_t>::max();
 	return 0;
 }
 	

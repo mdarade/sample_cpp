@@ -5,10 +5,12 @@ using namespace std;
 
 int main() {
 
-	vector<int> n(8);	
+	vector<int> n;	
 	// int x = 10;
-	for (int i: n)
+	cout << "n size is " << n.size() << std::endl;
+	for (int i: n) {
+		cout << "inside loop" << std::endl;
 		cout << i << std::endl;
-
+	}
 	return 0;
 }
