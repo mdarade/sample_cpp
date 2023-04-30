@@ -1,6 +1,12 @@
 #include <iostream>
+#include <array>
 using namespace std;
+
 int main(int argc, char* argv[]) {
+	using a32bytes = std::array<uint8_t, 32>;
+	cout << sizeof(a32bytes);
+	return 0;
+
 	uint64_t x;
 	cout << ":" << sizeof(x) << ":" << endl;
 	return 0;
